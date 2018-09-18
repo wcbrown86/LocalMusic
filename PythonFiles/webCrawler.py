@@ -16,12 +16,13 @@
                         The Rabbit Hole - 
                         AvidXchange Music Factory - 
                         The Milestone Club - 
-                        Neighborhood Theatre - 
+                        Neighborhood Theatre - Information on the website, google events, ticketfly
                         Petra's Bar - 
-                        PNC Music Pavilion - 
-                        The Underground - 
+                        PNC Music Pavilion - LiveNation owned Venue
+                        The Underground - No Website, uses LiveNation for calender information.
                         Charlotte Metro Credit Union Amphitheatre - 
-                        Tin Roof - 
+                        Tin Roof - Website is just a signle PDF that shows the menu, no calender 
+                                   for bands. 
                 2. Set up and access a database for storage of the information gathered. 
                 
 
@@ -31,7 +32,7 @@ from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup
 
-r = requests.get("http://www.fillmorenc.com")
+r = requests.get("https://themilestone.club/calendar/")
 print("Status", r.status_code)
 
 f = open("./page.html", "w+")
