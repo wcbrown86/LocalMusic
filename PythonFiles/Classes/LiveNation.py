@@ -6,3 +6,12 @@
     
     TODO:               
 """
+
+from Venues import Venues
+class LiveNation:
+
+    def __init__(self, venue):
+
+        self.venue = venue
+        self.id = venue.getLiveNationID()
+        
