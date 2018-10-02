@@ -12,6 +12,7 @@ class LiveNation:
 
     def __init__(self, venue):
 
+        self.key = "huk5WDVW6kgR9bt0WVXGGHExyyAF5UlX"
         self.venue = venue
         self.id = venue.getLiveNationID()
         
