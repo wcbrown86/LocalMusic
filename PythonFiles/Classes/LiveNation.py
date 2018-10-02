@@ -8,6 +8,10 @@
 """
 
 from Venues import Venues
+
+import json
+import urllib
+
 class LiveNation:
 
     def __init__(self, venue):
@@ -15,4 +19,9 @@ class LiveNation:
         self.key = "huk5WDVW6kgR9bt0WVXGGHExyyAF5UlX"
         self.venue = venue
         self.id = venue.getLiveNationID()
+
+    
+    def getVenus(self, vState):
+
+        url = "https://app.ticketmaster.com/discovery/v2/venues.json?stateCode=" + vState + "&apikey=" + self.key
         
