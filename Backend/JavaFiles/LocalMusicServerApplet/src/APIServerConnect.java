@@ -1,6 +1,6 @@
 import java.net.URL;
 import java.util.Date;
-import java.util.ArrayList;
+import java.util.Queue;
 
 /**
  * @author 		William Brown
@@ -30,7 +30,7 @@ public interface APIServerConnect {
 	
 	void establishSQLConnection();
 	
-	void pushToSQL(ArrayList<Event> events);
+	void pushToSQL(Queue<Event> events);
 	
 	void closeSQLConnection();
 	

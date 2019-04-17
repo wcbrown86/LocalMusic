@@ -1,25 +1,73 @@
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-
-
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Queue;
 import java.util.Date;
 
 public class GetLiveNationEvents implements APIServerConnect {
 
-	URL ROOTAPIURL = new URL("https://app.ticketmaster.com/discovery/v2/");
+	static final String ROOTURL = "https://app.ticketmaster.com/discovery/v2/events.json?postalCode=";
+	URL urlCombined;
+	HttpURLConnection urlConnection;
 	
-	public GetLiveNationEvents() throws MalformedURLException {}
+	public GetLiveNationEvents(String zip, String key){
+		
+		try {
+			urlCombined = new URL(ROOTURL + zip + "&apikey=" + key);
+			establishAPIConnection();
+			
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
 	
 	public void establishAPIConnection() {
 		// TODO Auto-generated method stub
+		
+		try {
+			urlConnection = (HttpURLConnection) urlCombined.openConnection();
+
+			urlConnection.setRequestMethod("GET");
+			urlConnection.connect();
+			int status = urlConnection.getResponseCode();
+
+	        if (status == HttpURLConnection.HTTP_OK) {
+	            BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+	            StringBuilder builder = new StringBuilder();
+	            String line = reader.readLine();
+	
+	            while (line != null) {
+	                builder.append(line);
+	                line = reader.readLine();
+	            }
+	
+	            parseJSON(builder.toString());
+	            System.out.println(builder.toString());
+	        }
+		} catch(IOException e) {
+			e.printStackTrace();
+		} finally {
+			
+			closeAPIConnection();
+			
+		}
 
 	}
 
 	
 	public void closeAPIConnection() {
-		// TODO Auto-generated method stub
+		
+		urlConnection.disconnect();
 
 	}
 
@@ -40,7 +88,7 @@ public class GetLiveNationEvents implements APIServerConnect {
 
 	}
 
-	public void pushToSQL(ArrayList<Event> events) {
+	public void pushToSQL(Queue<Event> events) {
 		// TODO Auto-generated method stub
 
 	}
