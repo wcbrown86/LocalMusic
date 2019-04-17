@@ -1,7 +1,11 @@
+import java.net.URL;
+import java.util.Date;
+import java.util.ArrayList;
 
 /**
- * @author 	William Brown
- * @date	04/16/2019
+ * @author 		William Brown
+ * @Copyright	04/16/2019
+ * @version		0.0
  * 
  * About:	This interface is the outline of the all the sub classes that will connect 
  * 			to outside API's like Live Nation. This will be used to keep all the 
@@ -12,6 +16,24 @@
  * 			in the LiveMusic database. 
  *
  */
-public interface APIServerConnect {
 
+
+public interface APIServerConnect {
+	
+	public void establishAPIConnection();
+	
+	void closeAPIConnection();
+	
+	void parseJSON(String json);
+	
+	Event createEventObject(Venue venue, Date date, Band[] bands, float[] price, URL eventURL, URL promoPhoto);
+	
+	void establishSQLConnection();
+	
+	void pushToSQL(ArrayList<Event> events);
+	
+	void closeSQLConnection();
+	
+	void garbageCollection();
+	
 }
