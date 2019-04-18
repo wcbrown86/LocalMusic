@@ -1,6 +1,3 @@
-
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,20 +7,43 @@ import java.net.URL;
 import java.util.Queue;
 import java.util.Date;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+/**
+ * <h4>
+ * About:	
+ * <p>
+ * 			This Class implements the APIServerConnect Interface to connect to the Live
+ * 			Nation events API. This class takes in the venue ID that is set by Live Nation 
+ * 			and the API Key needed to access the API. It then takes the JSON that is returned by 
+ * 			Live Nation and parses this information to pull out each events information. Then the 
+ * 			event information is pushed to the SQL server that stores all the events from the multiple	
+ * 			event services. 
+ * </h4>
+ * 
+ * @author 		William Brown
+ * @since		04/16/2019
+ * @version		0.0.1
+ *  
+ *
+ */
+
 public class GetLiveNationEvents implements APIServerConnect {
 
-	static final String ROOTURL = "https://app.ticketmaster.com/discovery/v2/events.json?postalCode=";
+	static final String ROOTURL = "https://app.ticketmaster.com/discovery/v2/events.json?venueId=";
 	URL urlCombined;
 	HttpURLConnection urlConnection;
 	
-	public GetLiveNationEvents(String zip, String key){
+	public GetLiveNationEvents(String venueID, String key){
 		
 		try {
-			urlCombined = new URL(ROOTURL + zip + "&apikey=" + key);
+			urlCombined = new URL(ROOTURL + venueID + "&apikey=" + key);
 			establishAPIConnection();
 			
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -32,7 +52,7 @@ public class GetLiveNationEvents implements APIServerConnect {
 	
 	
 	public void establishAPIConnection() {
-		// TODO Auto-generated method stub
+		
 		
 		try {
 			urlConnection = (HttpURLConnection) urlCombined.openConnection();
@@ -73,7 +93,22 @@ public class GetLiveNationEvents implements APIServerConnect {
 
 	
 	public void parseJSON(String json) {
-		// TODO Auto-generated method stub
+		
+		try {
+			
+			JSONObject object = new JSONObject(json);
+            JSONArray eventsArray = object.getJSONArray("events");
+            
+            for(int i = 0; i < eventsArray.length(); i++) {
+            	
+            	JSONObject eventObject = eventsArray.getJSONObject(i);
+            }
+			
+		} catch (JSONException e) {
+			
+			e.printStackTrace();
+			
+		}
 
 	}
 
