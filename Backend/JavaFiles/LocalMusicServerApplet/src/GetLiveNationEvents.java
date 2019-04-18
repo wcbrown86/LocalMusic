@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 /**
  * <h4>
  * About:	
@@ -102,6 +103,8 @@ public class GetLiveNationEvents implements APIServerConnect {
             for(int i = 0; i < eventsArray.length(); i++) {
             	
             	JSONObject eventObject = eventsArray.getJSONObject(i);
+            	
+            	
             }
 			
 		} catch (JSONException e) {
