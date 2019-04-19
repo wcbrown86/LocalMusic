@@ -29,4 +29,6 @@ dependencies {
     
     // This dependency is used to access the LiveNation API. Instead of using JSON.
     compile 'com.ticketmaster.api:discovery-java:0.1.6'
+    
+    compile "org.slf4j:slf4j-simple:1.7.9"
 }
