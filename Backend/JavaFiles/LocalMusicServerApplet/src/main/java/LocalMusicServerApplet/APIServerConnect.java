@@ -1,3 +1,6 @@
+package LocalMusicServerApplet;
+
+
 import java.net.URL;
 import java.util.Date;
 import java.util.Queue;
@@ -29,13 +32,13 @@ public interface APIServerConnect {
 	
 	void closeAPIConnection();
 	
-	void parseJSON(String json);
+	void parseData(String json);
 	
-	Event createEventObject(Venue venue, Date date, Band[] bands, float[] price, URL eventURL, URL promoPhoto);
+	LocalEvent createEventObject(LocalVenue venue, Date date, LocalBand[] bands, float[] price, URL eventURL, URL promoPhoto);
 	
 	void establishSQLConnection();
 	
-	void pushToSQL(Queue<Event> events);
+	void pushToSQL(Queue<LocalEvent> events);
 	
 	void closeSQLConnection();
 	
