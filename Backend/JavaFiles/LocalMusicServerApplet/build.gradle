@@ -28,5 +28,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     
     // This dependency is used to access the LiveNation API. Instead of using JSON.
-    compile 'com.ticketmaster.api:discovery-java:0.1.8'
+    compile 'com.ticketmaster.api:discovery-java:0.1.6'
 }
