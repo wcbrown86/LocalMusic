@@ -13,9 +13,9 @@ import java.util.Queue;
  *		About:
  * </h3>
  * 
- * 		This Class is used to update the list of Venues that the application checks. Each venue object 
+ * 		This Class is used to update the list of venues that the application checks. Each venue object 
  * 		will have the basic information needed. in that it will contain the name, address information, 
- * 		url, and promotional images. It also contains a variable that is used to tell the program how to 
+ * 		URL, and promotional images. It also contains a variable that is used to tell the program how to 
  * 		collect the events for this venue. So if the venue is listed with Live Nation, or another service
  * 		this field will tell the application how to update the events information. 
  *
@@ -29,31 +29,30 @@ import java.util.Queue;
  */
 public class LocalVenue {
 	
-	private String name, address, city, postalCode, contryCode, url,
-			generalInfo, id, sourceAPI;
+	private String name, address, city, postalCode, countryCode, url,
+			id, sourceAPI;
 	private ArrayList<String> images;
 	private Queue<LocalEvent> eventsList;
 
 	/**
-	 * @param vName
-	 * @param vAddress
-	 * @param vCity
-	 * @param vPostalCode
-	 * @param vContryCode
-	 * @param vUrl
-	 * @param vGeneralInfo
-	 * @param vImages
-	 * @param vId
-	 * @param vSourceAPI
+	 * @param vName : A string that represents the name of the venue.
+	 * @param vAddress : A String that represents the street address information. 
+	 * @param vCity : A String that represents the City information.
+	 * @param vPostalCode : A String that represents the Postal Code or Zip Code information.
+	 * @param vCountryCode : A String that represents the Country Code information. e.g. US for United States
+	 * @param vUrl : A String that represents the venues website URL. 
+	 * @param vImages : A collection of URLs that point to images the venue has provided for promotion.
+	 * @param vId : A string that represents the ID of the venue. Could be for the API like Live Nation or other ID's
+	 * @param vSourceAPI : A string that represents the API source the application uses to get updated information. 
 	 */
-	public LocalVenue(String vName, String vAddress, String vCity, String vPostalCode, String vContryCode, 
-			String vUrl, String vGeneralInfo, ArrayList<String> vImages, String vId, String vSourceAPI) {
+	public LocalVenue(String vName, String vAddress, String vCity, String vPostalCode, String vCountryCode, 
+			String vUrl, ArrayList<String> vImages, String vId, String vSourceAPI) {
 		
 		name = vName;
 		address = vAddress;
 		city = vCity;
 		postalCode = vPostalCode;
-		contryCode = vContryCode;
+		countryCode = vCountryCode;
 		url = vUrl;
 		id = vId;
 		sourceAPI = vSourceAPI;
@@ -104,8 +103,8 @@ public class LocalVenue {
 	/**
 	 * @return the contryCode
 	 */
-	public String getContryCode() {
-		return contryCode;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
 	/**
@@ -113,13 +112,6 @@ public class LocalVenue {
 	 */
 	public String getUrl() {
 		return url;
-	}
-
-	/**
-	 * @return the generalInfo
-	 */
-	public String getGeneralInfo() {
-		return generalInfo;
 	}
 
 	/**
@@ -174,8 +166,8 @@ public class LocalVenue {
 	/**
 	 * @param contryCode the contryCode to set
 	 */
-	public void setContryCode(String contryCode) {
-		this.contryCode = contryCode;
+	public void setCountryCode(String contryCode) {
+		this.countryCode = contryCode;
 	}
 
 	/**
@@ -183,13 +175,6 @@ public class LocalVenue {
 	 */
 	public void setUrl(String url) {
 		this.url = url;
-	}
-
-	/**
-	 * @param generalInfo the generalInfo to set
-	 */
-	public void setGeneralInfo(String generalInfo) {
-		this.generalInfo = generalInfo;
 	}
 
 	/**

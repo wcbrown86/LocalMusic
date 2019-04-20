@@ -46,10 +46,12 @@ public class GenerateVenues {
 				List<Image> images = venue.getImages();
 				ArrayList<String> urlList = new ArrayList<String>();
 				
-				for(Image image: images) {
-					urlList.add(image.getUrl());
-				}
-				
+				if(images != null) {
+					for(Image image: images) {
+						urlList.add(image.getUrl());
+					}
+				} else
+					urlList.add("None");
 				
 				
 				LocalVenue temp = new LocalVenue(venue.getName(),
@@ -58,7 +60,6 @@ public class GenerateVenues {
 												 venue.getPostalCode(),
 												 venue.getCountry().getCountryCode(),
 												 venue.getUrl(),
-												 venue.getGeneralInfo().getGeneralRule(),
 												 urlList,
 												 venue.getId(),
 												 "LiveNation");
