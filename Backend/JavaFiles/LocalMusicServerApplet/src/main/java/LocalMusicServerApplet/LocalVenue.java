@@ -46,7 +46,7 @@ public class LocalVenue {
 	 * @param vSourceAPI : A string that represents the API source the application uses to get updated information. 
 	 */
 	public LocalVenue(String vName, String vAddress, String vCity, String vPostalCode, String vCountryCode, 
-			String vUrl, ArrayList<String> vImages, String vId, String vSourceAPI) {
+			String vUrl, ArrayList<String> vImages, String generalInformation, String vId, String vSourceAPI) {
 		
 		name = vName;
 		address = vAddress;
