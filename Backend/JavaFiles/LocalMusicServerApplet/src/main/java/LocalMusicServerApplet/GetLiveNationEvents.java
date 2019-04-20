@@ -1,10 +1,10 @@
 
 package LocalMusicServerApplet;
 
-import java.util.List;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
 import java.util.Queue;
 
 import com.ticketmaster.api.discovery.DiscoveryApi;
@@ -36,8 +36,8 @@ public class GetLiveNationEvents implements APIServerConnect{
 		DiscoveryApi apiConnect = new DiscoveryApi(APIKEY);
 		
 		try {
-			PagedResponse<Events> events = apiConnect.searchEvents(new SearchEventsOperation().postalCode("28206"));
-			System.out.print(events.getContent().getEvents().get(0).getId());
+			PagedResponse<Events> events = apiConnect.searchEvents(new SearchEventsOperation().venueId("KovZpZAEkeaA"));
+			List<Event> eventsList = events.getContent().getEvents();
 			
 			
 		} catch (IOException e) {
