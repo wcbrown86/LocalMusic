@@ -26,7 +26,7 @@ import java.util.Queue;
  */
 
 
-public interface APIServerConnect {
+public interface UpdateEvents {
 	
 	public void establishAPIConnection();
 	

@@ -18,9 +18,8 @@ import com.ticketmaster.discovery.model.Venues;
  *		About:
  * </h3>
  * 
- * 			This Class is used to gather updated, or create new information from venues. The information is pulled
- * 			from the used APIs that are provided by the Event companies like LiveNation. 
- *
+ * 			This Class is used to gather updated, or create new information from venues in the Live Nation 
+ * 			API system. 
  *
  * @author 		William Brown
  * @copyright 	Apr 19, 2019
@@ -39,6 +38,7 @@ import com.ticketmaster.discovery.model.Venues;
 
 public class GenerateLiveNationVenues implements GenerateVenues {
 	
+	// Live Nation API key.
 	static final String LIVENATIONAPIKEY = "huk5WDVW6kgR9bt0WVXGGHExyyAF5UlX";
 	
 	
@@ -54,14 +54,22 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 	 */
 	public LinkedList<LocalVenue> gatherVenues(String stateCode){
 		
+		// The List that will hold all the retrieved venues that are converted to the LocalVenue object. 
 		LinkedList<LocalVenue> fullVenueList = new LinkedList<LocalVenue>();
 		
+		// Creates the API connection.
 		DiscoveryApi apiConnection = new DiscoveryApi(LIVENATIONAPIKEY);
 		
+		
 		try {
+			
+			// This variable holds the information sent back from the API connection.  
 			PagedResponse<Venues> venues = apiConnection.searchVenues(new SearchVenuesOperation().stateCode(stateCode));
+			
+			// Holds the parsed Venues from the PagedResponse input. 
 			List<Venue> venueList = venues.getContent().getVenues();
 			
+			// Loop that takes each retrieved venue and converts it into a LocalVenue Item. 
 			for(Venue venue: venueList) {
 				
 				LocalVenue temp = createVenueObject(venue);
@@ -75,7 +83,7 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 		}
 		
 		
-		
+		// Checks to see if the list is empty, if it is empty null is returned, other wise the list is returned.
 		if(fullVenueList.isEmpty())
 			return null;
 		else
@@ -84,16 +92,34 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 		
 	}
 
-
+	
+	/**
+	 * 
+	 * The method is implemented from the interface. It takes in an object that is 
+	 * casted to a LiveNation Venue object. This object is then parsed to convert 
+	 * the information into a LocalVenue object that is then passed back to the calling
+	 * method to be used or stored. 
+	 * 
+	 * @param object : a generic object that can be used to convert to a LocalVenue object.
+	 * @return LocalVenue : A object that can be better used by the program and stored. 
+	 * 
+	 */
 	public LocalVenue createVenueObject(Object object) {
 		
+		// Takes the object that is passed and casts it to a LiveNation Venue object.
 		Venue venue = (Venue) object;
+		
+		// Creates the LocalVenue Object to store the converted information.
 		LocalVenue localVenue;
 		
+		// A list that holds the URLs of the image object that is passed from the API, once it is converted.
 		List<Image> images = venue.getImages();
 		ArrayList<String> urlList = convertImageToURL(images);
+		
+		// Holds the parsed information that is passed from the API about the venue.
 		String generalInformation = parseInformation(venue);
 		
+		// Takes that information from the API and collects the information needed to convert to a LocalVenue object.
 		localVenue = new LocalVenue(venue.getName(),
 										 venue.getAddress().getLine1() + " " + venue.getAddress().getLine2(),
 										 venue.getCity().getName(),
@@ -107,7 +133,16 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 		
 		return localVenue;
 	}
-	
+
+	/**
+	 * 
+	 * This method takes the LiveNation Image list, and pulls the URLs for the images
+	 * then stores the URLs into an ArrayList of Strings. 
+	 * 
+	 * @param images : A List of LiveNation Images to be parsed for usable information.
+	 * @return : Returns an ArrayList of Strings containing the URLs for the images.
+	 * 
+	 */
 	public ArrayList<String> convertImageToURL(List<Image> images){
 		
 		ArrayList<String> urlList = new ArrayList<String>(images.size());
@@ -120,6 +155,14 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 		
 	}
 	
+	/**
+	 * 
+	 * The General information is parsed for the String data in the object
+	 * 
+	 * @param venue : LiveNation venue object to be parsed for the general information.
+	 * @return : Returns a String that will contain information provided by the venue. 
+	 * 
+	 */
 	public String parseInformation(Venue venue) {
 		String information = "";
 		

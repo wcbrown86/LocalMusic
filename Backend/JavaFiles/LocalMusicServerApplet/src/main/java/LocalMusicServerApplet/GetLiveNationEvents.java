@@ -26,7 +26,7 @@ import com.ticketmaster.discovery.model.Events;
  * TODO
  *
  */
-public class GetLiveNationEvents implements APIServerConnect{
+public class GetLiveNationEvents implements UpdateEvents{
 	
 	static final String APIKEY = "huk5WDVW6kgR9bt0WVXGGHExyyAF5UlX";
 
