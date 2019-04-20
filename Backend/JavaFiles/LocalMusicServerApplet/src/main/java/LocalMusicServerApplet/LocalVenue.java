@@ -3,7 +3,9 @@
  */
 package LocalMusicServerApplet;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 
 /**
@@ -29,21 +31,46 @@ public class LocalVenue {
 	
 	private String name, address, city, postalCode, contryCode, url,
 			generalInfo, id, sourceAPI;
-	private List<String> images;
+	private ArrayList<String> images;
+	private Queue<LocalEvent> eventsList;
 
 	/**
-	 * @param name
-	 * @param address
-	 * @param url
-	 * @param generalInfo
-	 * @param images
-	 * @param id
-	 * @param sourceAPI
+	 * @param vName
+	 * @param vAddress
+	 * @param vCity
+	 * @param vPostalCode
+	 * @param vContryCode
+	 * @param vUrl
+	 * @param vGeneralInfo
+	 * @param vImages
+	 * @param vId
+	 * @param vSourceAPI
 	 */
 	public LocalVenue(String vName, String vAddress, String vCity, String vPostalCode, String vContryCode, 
-			String vUrl, String vGeneralInfo, List<String> vImages, String vId, String vSourceAPI) {
+			String vUrl, String vGeneralInfo, ArrayList<String> vImages, String vId, String vSourceAPI) {
+		
+		name = vName;
+		address = vAddress;
+		city = vCity;
+		postalCode = vPostalCode;
+		contryCode = vContryCode;
+		url = vUrl;
+		id = vId;
+		sourceAPI = vSourceAPI;
+		images = vImages;
 		
 		
+		eventsList = new LinkedList<LocalEvent>();
+		
+		
+		
+	}
+
+	/**
+	 * @return the eventsList
+	 */
+	public Queue<LocalEvent> getEventsList() {
+		return eventsList;
 	}
 
 	/**
@@ -112,7 +139,7 @@ public class LocalVenue {
 	/**
 	 * @return the images
 	 */
-	public List<String> getImages() {
+	public ArrayList<String> getImages() {
 		return images;
 	}
 
@@ -182,7 +209,7 @@ public class LocalVenue {
 	/**
 	 * @param images the images to set
 	 */
-	public void setImages(List<String> images) {
+	public void setImages(ArrayList<String> images) {
 		this.images = images;
 	}
 
