@@ -64,17 +64,26 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 		try {
 			
 			// This variable holds the information sent back from the API connection.  
-			PagedResponse<Venues> venues = apiConnection.searchVenues(new SearchVenuesOperation().stateCode(stateCode));
-			
-			// Holds the parsed Venues from the PagedResponse input. 
-			List<Venue> venueList = venues.getContent().getVenues();
-			
-			// Loop that takes each retrieved venue and converts it into a LocalVenue Item. 
-			for(Venue venue: venueList) {
+			PagedResponse<Venues> venues = apiConnection.searchVenues(new SearchVenuesOperation().stateCode(stateCode).pageSize(199));
+			int numPages = venues.getPageInfo().getTotalPages();
+			int i = 0;
+			while( i < numPages) {
 				
-				LocalVenue temp = createVenueObject(venue);
-				fullVenueList.add(temp);
+				if(venues.getContent() != null) {
+					// Holds the parsed Venues from the PagedResponse input. 
+					List<Venue> venueList = venues.getContent().getVenues();
 				
+					// Loop that takes each retrieved venue and converts it into a LocalVenue Item. 
+					for(Venue venue: venueList) {
+					
+						LocalVenue temp = createVenueObject(venue);
+						fullVenueList.add(temp);
+					
+					}
+					
+					venues = apiConnection.nextPage(venues);
+					i++;
+				}
 			}
 	
 		} catch (IOException e) {
@@ -112,24 +121,59 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 		// Creates the LocalVenue Object to store the converted information.
 		LocalVenue localVenue;
 		
+		String vName;
+		
+		if(venue.getName() != null)
+			vName = venue.getName();
+		else
+			vName = "null";
+		
+		String vAddress;
+		
+		if(venue.getAddress() != null)
+			vAddress = venue.getAddress().getLine1() + " " + venue.getAddress().getLine2();
+		else
+			vAddress = "null";
+		
+		String vCity;
+		
+		if(venue.getCity() != null)
+			vCity = venue.getCity().getName();
+		else
+			vCity = "null";
+		
+		String vPostalCode;
+		
+		if(venue.getPostalCode() != null)
+			vPostalCode = venue.getPostalCode();
+		else
+			vPostalCode = "null";
+		
+		String vCountryCode;
+		
+		if(venue.getCountry() != null)
+			vCountryCode = venue.getCountry().getCountryCode();
+		else
+			vCountryCode = "null";
+		
+		String vURL;
+		
+		if(venue.getUrl() != null)
+			vURL = venue.getUrl();
+		else
+			vURL = "null";
+		
 		// A list that holds the URLs of the image object that is passed from the API, once it is converted.
 		List<Image> images = venue.getImages();
+		
 		ArrayList<String> urlList = convertImageToURL(images);
 		
 		// Holds the parsed information that is passed from the API about the venue.
 		String generalInformation = parseInformation(venue);
 		
 		// Takes that information from the API and collects the information needed to convert to a LocalVenue object.
-		localVenue = new LocalVenue(venue.getName(),
-										 venue.getAddress().getLine1() + " " + venue.getAddress().getLine2(),
-										 venue.getCity().getName(),
-										 venue.getPostalCode(),
-										 venue.getCountry().getCountryCode(),
-										 venue.getUrl(),
-										 urlList,
-										 generalInformation,
-										 venue.getId(),
-										 "LiveNation");
+		localVenue = new LocalVenue(vName, vAddress, vCity, vPostalCode, vCountryCode, vURL, urlList,
+									generalInformation, venue.getId(), "LiveNation");
 		
 		return localVenue;
 	}
@@ -145,10 +189,13 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 	 */
 	public ArrayList<String> convertImageToURL(List<Image> images){
 		
-		ArrayList<String> urlList = new ArrayList<String>(images.size());
+		ArrayList<String> urlList = new ArrayList<String>();
 		
-		for(Image image: images) {
-			urlList.add(image.getUrl());
+		if(images != null) {
+		
+			for(Image image: images) {
+				urlList.add(image.getUrl());
+			}
 		}
 		
 		return urlList;
@@ -166,18 +213,24 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 	public String parseInformation(Venue venue) {
 		String information = "";
 		
-		if(venue.getGeneralInfo().getGeneralRule() != null)
-			
-			information += "General Rule \n" + 
-							venue.getGeneralInfo().getGeneralRule() + 
-							"\n";
+		if(venue.getGeneralInfo() != null) {
 		
-		if(venue.getGeneralInfo().getChildRule() != null)
+			if(venue.getGeneralInfo().getGeneralRule() != null)
+				
+				information += "General Rule \n" + 
+								venue.getGeneralInfo().getGeneralRule() + 
+								"\n";
 			
-			information += "Child Rule \n" +
-						  venue.getGeneralInfo().getChildRule() +
-						  "\n";
-		
-		return information;
+			if(venue.getGeneralInfo().getChildRule() != null)
+				
+				information += "Child Rule \n" +
+							  venue.getGeneralInfo().getChildRule() +
+							  "\n";
+			
+			return information;
+		} else {
+			
+			return "No General Information.";
+		}
 	}
 }
