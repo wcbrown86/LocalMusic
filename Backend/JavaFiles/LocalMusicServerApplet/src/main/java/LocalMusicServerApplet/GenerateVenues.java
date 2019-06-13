@@ -21,7 +21,7 @@ import java.util.LinkedList;
 public interface GenerateVenues {
 	
 	
-	public LinkedList<LocalVenue> gatherVenues(String countryCode);
+	public LinkedList<LocalVenue> gatherVenues(String countryCode, String apiKey);
 	
 	public LocalVenue createVenueObject( Object object);
 

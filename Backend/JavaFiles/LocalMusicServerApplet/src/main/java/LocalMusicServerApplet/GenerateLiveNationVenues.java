@@ -38,10 +38,6 @@ import com.ticketmaster.discovery.model.Venues;
 
 public class GenerateLiveNationVenues implements GenerateVenues {
 	
-	// Live Nation API key.
-	static final String LIVENATIONAPIKEY = "huk5WDVW6kgR9bt0WVXGGHExyyAF5UlX";
-	
-	
 	/**
 	 * In this function, the application will take a given Postal Code and will gather all the 
 	 * venues in this postal code. Then created a LocalVenue object and add this object to a LinkedList.
@@ -52,13 +48,13 @@ public class GenerateLiveNationVenues implements GenerateVenues {
 	 * @param countryCode : A String that represents the Postal Code or Zip code that needs to be checked for venues.
 	 * @return : A linked list that can be converted to a JSON file for later use, or used to update the SQL server. 
 	 */
-	public LinkedList<LocalVenue> gatherVenues(String stateCode){
+	public LinkedList<LocalVenue> gatherVenues(String stateCode, String apiKey){
 		
 		// The List that will hold all the retrieved venues that are converted to the LocalVenue object. 
 		LinkedList<LocalVenue> fullVenueList = new LinkedList<LocalVenue>();
 		
 		// Creates the API connection.
-		DiscoveryApi apiConnection = new DiscoveryApi(LIVENATIONAPIKEY);
+		DiscoveryApi apiConnection = new DiscoveryApi(apiKey);
 		
 		
 		try {
