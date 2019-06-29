@@ -28,12 +28,18 @@ import com.ticketmaster.discovery.model.Events;
  */
 public class GetLiveNationEvents implements UpdateEvents{
 	
-	static final String APIKEY = "huk5WDVW6kgR9bt0WVXGGHExyyAF5UlX";
+	private String APIKey;
+	
+	public GetLiveNationEvents(String key) {
+		
+		APIKey = key;
+	}
+	
 
 	@Override
 	public void establishAPIConnection() {
 		// TODO Auto-generated method stub
-		DiscoveryApi apiConnect = new DiscoveryApi(APIKEY);
+		DiscoveryApi apiConnect = new DiscoveryApi(APIKey);
 		
 		try {
 			PagedResponse<Events> events = apiConnect.searchEvents(new SearchEventsOperation().venueId("KovZpZAEkeaA"));
