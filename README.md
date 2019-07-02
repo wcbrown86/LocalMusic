@@ -1,4 +1,4 @@
-##About This Project
+## About This Project
 
 Local Music is an idea to create a API and database of music events. The goal is to use this database to notify users of events close to them based off music prefreance and the users own music librarys. 
 
