@@ -6,7 +6,11 @@ The secondary goal is to design a interface that venues can use to list there ev
 
 The users main interaction with the database would be through a mobile app that would pull the users music preferance from there choice of music libarays, like Spotify and Apple Music. 
 
-Current Work being done. 
+### What Is This Project For
+
+The goal of this project is to allow me the creator to learn more about the full deleopment process. I plan to use this to get a better handle on creating a project from start to finish. I will also focus on learning new conceps and pratices. Like setting up testing for my code, and learning the Srping Framwork for managing a database. 
+
+#### Current Work being done. 
     * Currently working on learning test patterns for Python with pytest. 
     * Also building the backend work with Java so that once both are complete they
       can be compaired to see which will have a btter prefomace. 
