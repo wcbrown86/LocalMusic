@@ -8,7 +8,11 @@ The users main interaction with the database would be through a mobile app that 
 
 ### What Is This Project For
 
-The goal of this project is to allow me the creator to learn more about the full development process. I plan to use this to get a better handle on creating a project from start to finish. I will also focus on learning new concepts and practices. Like setting up testing for my code, and learning the Spring Framework for managing a database. 
+The goal of this project is to allow me the creator to learn more about the full development process. I plan to use this to get a better handle on creating a project from start to finish. I will also focus on learning new concepts and practices. Like setting up testing for my code, and learning the Spring Framework for managing a database.
+
+This project will be used to as an interduction to Spring and the concepts of developing a web app. The project will be set up with some web app access to allow for managment of the updating of the SQL database. This project will also create a customer facing web app for venue owners to be able to take controll of the information stored in the database. Once the web app is complete, the strech goals would be to set up mobile app access to allow users to sync a selected music library to use as a band search function in the database to give the user information about bands that they lisen to and if they are playing nerby. This project will be ever changing, and will be created in an agile manager. My first priority will be to develop a minimally viable product and then add features from that point.
+
+The minimally viable product will be the creation of the web app for venue managment. This means that the system will access the Live Nation api and pull the venue information localed in this database, store it in the LiveMusic data base. One this information is gather then the app will be programed to access the events api from Live Nation and add this information to each venue. The managment web app will show the list of all events and the last time the list was updated. 
 
 This project is also meant to only be used to show my work and ability to learn new concepts and then apply these concepts into a working project.
 
