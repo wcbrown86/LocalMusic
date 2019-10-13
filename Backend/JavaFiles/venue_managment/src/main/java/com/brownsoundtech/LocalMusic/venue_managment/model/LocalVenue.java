@@ -2,27 +2,62 @@ package com.brownsoundtech.LocalMusic.venue_managment.model;
 
 import java.util.Queue;
 
+import com.brownsoundtech.LocalMusic.venue_managment.service.VenueInformationService;
+import com.ticketmaster.discovery.model.Venue;
+
 public class LocalVenue {
 	
 	private String name, address, city, postalCode, countryCode, url,
-	id, sourceAPI;
+	id, sourceAPI, contactPhone, contactEmail;
 	
 	private VenueInformation venueInformation;
 	private VenueImages venueImages;
 	private Queue<VenueEvents> venueEvents;
 	
+	private Venue venue;
 	
-	public String getVenueInformation() {
+	public LocalVenue(Venue venue) {
 		
-		return venueInformation.toString();
+		this.venue = venue;
+		
+		venueInformation = new VenueInformation();
+		
+		new VenueInformationService(this, this.venueInformation);
+	}
+	
+	
+	public VenueInformation getVenueInformation() {
+		
+		return venueInformation;
 		
 	}
 	
+	public Venue getVenue() {
+		return venue;
+	}
+
+
 	public String getImages() {
 		
 		return venueImages.toString();
 	}
 	
+	public String getContactPhone() {
+		return contactPhone;
+	}
+
+	public void setContactPhone(String contactPhone) {
+		this.contactPhone = contactPhone;
+	}
+
+	public String getContactEmail() {
+		return contactEmail;
+	}
+
+	public void setContactEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
+	}
+
 	public String getName() {
 		return name;
 	}
