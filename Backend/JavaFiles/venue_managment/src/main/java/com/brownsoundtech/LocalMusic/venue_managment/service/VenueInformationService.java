@@ -5,30 +5,23 @@ import com.brownsoundtech.LocalMusic.venue_managment.model.VenueInformation;
 
 public class VenueInformationService {
 	
-	private LocalVenue venue;
-	private VenueInformation venueInformation;
 	
 	public VenueInformationService(){
-		this.venue = null;
-		this.venueInformation = null;
+		
 	}
 	
 	public VenueInformationService(LocalVenue venue, VenueInformation venueInformation){
 		
-		this.venue = venue;
-		this.venueInformation = venueInformation;
-		
-		setPhoneNumberInformation();
+		venue.getVenueInformation().setPhoneNumberDetail(informationValidation(venue.getVenue().getBoxOfficeInfo().getPhoneNumberDetail()));
 		
 	}
 
-	private void setPhoneNumberInformation() {
+	private String informationValidation(String info) {
 		
-		if(isNullInformation(venueInformation.getPhoneNumberDetail()))
-				venueInformation.setPhoneNumberDetail(nullInformation());
+		if(isNullInformation(info))
+			return nullInformation();
 		else
-			venueInformation.setPhoneNumberDetail(venue.getVenue().getBoxOfficeInfo().getPhoneNumberDetail());
-		
+			return info;
 	}
 
 	private String nullInformation() {

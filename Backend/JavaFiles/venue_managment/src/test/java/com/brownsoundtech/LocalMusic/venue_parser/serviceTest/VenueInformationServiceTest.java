@@ -4,24 +4,20 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.brownsoundtech.LocalMusic.venue_managment.model.LocalVenue;
-import com.brownsoundtech.LocalMusic.venue_managment.model.VenueInformation;
 import com.brownsoundtech.LocalMusic.venue_managment.service.VenueInformationService;
 import com.ticketmaster.discovery.model.Venue;
 import com.ticketmaster.discovery.model.Venue.BoxOfficeInfo;
 import com.ticketmaster.discovery.model.Venue.GeneralInfo;
 
-import junit.framework.Assert;
-
 public class VenueInformationServiceTest {
 	
 	private LocalVenue nullLocalVenue;
 	
-	private LocalVenue nonNullInformationVenue;
+	private LocalVenue nonNullLocalVenue;
 	
 	@BeforeEach
 	public void SetUpVenueInformation() {
@@ -41,7 +37,7 @@ public class VenueInformationServiceTest {
 		nonNullVenue.setGeneralInfo(new GeneralInfo("Test", "Test", "Test"));
 		nonNullVenue.setParkingDetail("Test");
 		
-		nonNullInformationVenue = new LocalVenue(nonNullVenue);
+		nonNullLocalVenue = new LocalVenue(nonNullVenue);
 		
 	}
 	
@@ -67,8 +63,14 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullPhoneNumberShouldReturnNA() {
 		
-		assertEquals(nullLocalVenue.getVenueInformation().getPhoneNumberDetail(), "n/a");
+		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getPhoneNumberDetail() );
 		
+	}
+	
+	@Test
+	public void shouldReturnPhoneNumber() {
+		
+		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getPhoneNumberDetail());
 	}
 
 }
