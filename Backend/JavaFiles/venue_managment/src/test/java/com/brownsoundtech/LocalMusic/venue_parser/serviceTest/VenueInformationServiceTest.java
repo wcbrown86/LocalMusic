@@ -32,10 +32,10 @@ public class VenueInformationServiceTest {
 		nullLocalVenue = new LocalVenue(nullVenue);
 		
 		Venue nonNullVenue = new Venue();
-		nonNullVenue.setBoxOfficeInfo(new BoxOfficeInfo("Test", "Test", "Test", "Test"));
-		nonNullVenue.setAccessibleSeatingDetail("Test");
-		nonNullVenue.setGeneralInfo(new GeneralInfo("Test", "Test", "Test"));
-		nonNullVenue.setParkingDetail("Test");
+		nonNullVenue.setBoxOfficeInfo(new BoxOfficeInfo("Test Accepted Payments", "Test Phone Number", "Test Will Call Information", "Test Open Hours"));
+		nonNullVenue.setAccessibleSeatingDetail("Test Accessible Seating Detail");
+		nonNullVenue.setGeneralInfo(new GeneralInfo("Test Child Rule", "Test General Rule", "Test throwaway information"));
+		nonNullVenue.setParkingDetail("Test Parking Details");
 		
 		nonNullLocalVenue = new LocalVenue(nonNullVenue);
 		
@@ -70,7 +70,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void shouldReturnPhoneNumberTest() {
 		
-		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getPhoneNumberDetail());
+		assertEquals( "Test Phone Number", nonNullLocalVenue.getVenueInformation().getPhoneNumberDetail());
 	}
 	
 	@Test
@@ -83,7 +83,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void shouldOpenHoursNumberTest() {
 		
-		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getOpenHoursDetail());
+		assertEquals( "Test Open Hours", nonNullLocalVenue.getVenueInformation().getOpenHoursDetail());
 	}
 	
 	@Test
@@ -96,7 +96,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void shouldShowAcceptedPaymentTest() {
 		
-		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getAcceptedPaymentDetail());
+		assertEquals( "Test Accepted Payments", nonNullLocalVenue.getVenueInformation().getAcceptedPaymentDetail());
 	}
 	
 	@Test
@@ -109,7 +109,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void shouldShowWillCallTest() {
 		
-		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getWillCallDetail());
+		assertEquals( "Test Will Call Information", nonNullLocalVenue.getVenueInformation().getWillCallDetail());
 	}
 	
 	@Test
@@ -122,7 +122,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void shouldShowParkingDetailsTest() {
 		
-		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getParkingDetail());
+		assertEquals( "Test Parking Details", nonNullLocalVenue.getVenueInformation().getParkingDetail());
 	}
 
 }
