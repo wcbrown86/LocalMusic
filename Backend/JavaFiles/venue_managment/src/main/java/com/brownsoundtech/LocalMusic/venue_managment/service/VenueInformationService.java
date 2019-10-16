@@ -13,6 +13,7 @@ public class VenueInformationService {
 	public VenueInformationService(LocalVenue venue, VenueInformation venueInformation){
 		
 		venue.getVenueInformation().setPhoneNumberDetail(informationValidation(venue.getVenue().getBoxOfficeInfo().getPhoneNumberDetail()));
+		venue.getVenueInformation().setOpenHoursDetail(informationValidation(venue.getVenue().getBoxOfficeInfo().getOpenHoursDetail()));
 		
 	}
 

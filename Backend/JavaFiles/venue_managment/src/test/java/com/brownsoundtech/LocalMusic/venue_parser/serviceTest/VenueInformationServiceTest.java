@@ -61,16 +61,29 @@ public class VenueInformationServiceTest {
 	}
 	
 	@Test
-	public void nullPhoneNumberShouldReturnNA() {
+	public void nullPhoneNumberShouldReturnNATest() {
 		
 		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getPhoneNumberDetail() );
 		
 	}
 	
 	@Test
-	public void shouldReturnPhoneNumber() {
+	public void shouldReturnPhoneNumberTest() {
 		
 		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getPhoneNumberDetail());
+	}
+	
+	@Test
+	public void nullOpenHoursShouldReturnNATest() {
+		
+		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getOpenHoursDetail() );
+		
+	}
+	
+	@Test
+	public void shouldOpenHoursNumberTest() {
+		
+		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getOpenHoursDetail());
 	}
 
 }
