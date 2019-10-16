@@ -20,6 +20,8 @@ public class VenueInformationService {
 		
 		venue.getVenueInformation().setParkingDetail(informationValidation(venue.getVenue().getParkingDetail()));
 		
+		venue.getVenueInformation().setAccessibleSeatingDetail(informationValidation(venue.getVenue().getAccessibleSeatingDetail()));
+		
 	}
 
 	private String informationValidation(String info) {

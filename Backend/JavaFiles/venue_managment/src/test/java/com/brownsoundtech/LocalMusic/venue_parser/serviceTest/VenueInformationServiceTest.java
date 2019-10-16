@@ -124,5 +124,18 @@ public class VenueInformationServiceTest {
 		
 		assertEquals( "Test Parking Details", nonNullLocalVenue.getVenueInformation().getParkingDetail());
 	}
+	
+	@Test
+	public void nullAccessibleSeatingShouldReturnNATest() {
+		
+		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getAccessibleSeatingDetail());
+		
+	}
+	
+	@Test
+	public void shouldShowAccessibleSeatingDetailsTest() {
+		
+		assertEquals( "Test Accessible Seating Detail", nonNullLocalVenue.getVenueInformation().getAccessibleSeatingDetail());
+	}
 
 }
