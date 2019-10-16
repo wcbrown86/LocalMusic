@@ -102,14 +102,27 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullWillCallshouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getAcceptedPaymentDetail());
+		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getWillCallDetail());
 		
 	}
 	
 	@Test
 	public void shouldShowWillCallTest() {
 		
-		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getAcceptedPaymentDetail());
+		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getWillCallDetail());
+	}
+	
+	@Test
+	public void nullParkingDetailShouldReturnNATest() {
+		
+		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getParkingDetail());
+		
+	}
+	
+	@Test
+	public void shouldShowParkingDetailsTest() {
+		
+		assertEquals( "Test", nonNullLocalVenue.getVenueInformation().getParkingDetail());
 	}
 
 }
