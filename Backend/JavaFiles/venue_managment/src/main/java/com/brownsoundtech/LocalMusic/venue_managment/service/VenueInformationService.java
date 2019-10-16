@@ -14,6 +14,7 @@ public class VenueInformationService {
 		
 		venue.getVenueInformation().setPhoneNumberDetail(informationValidation(venue.getVenue().getBoxOfficeInfo().getPhoneNumberDetail()));
 		venue.getVenueInformation().setOpenHoursDetail(informationValidation(venue.getVenue().getBoxOfficeInfo().getOpenHoursDetail()));
+		venue.getVenueInformation().setAcceptedPaymentDetail(informationValidation(venue.getVenue().getBoxOfficeInfo().getAcceptedPaymentDetail()));
 		
 	}
 
