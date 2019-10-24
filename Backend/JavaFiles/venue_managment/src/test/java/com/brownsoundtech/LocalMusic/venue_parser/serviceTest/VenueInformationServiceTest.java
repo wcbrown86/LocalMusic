@@ -63,7 +63,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullPhoneNumberShouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getPhoneNumberDetail() );
+		assertEquals( "Please contact the venue for more information.", nullLocalVenue.getVenueInformation().getPhoneNumberDetail() );
 		
 	}
 	
@@ -76,7 +76,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullOpenHoursShouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getOpenHoursDetail() );
+		assertEquals( "Please contact the venue for more information.", nullLocalVenue.getVenueInformation().getOpenHoursDetail() );
 		
 	}
 	
@@ -89,7 +89,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullAcceptedPaymentshouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getAcceptedPaymentDetail());
+		assertEquals( "Please contact the venue for more information.", nullLocalVenue.getVenueInformation().getAcceptedPaymentDetail());
 		
 	}
 	
@@ -102,7 +102,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullWillCallshouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getWillCallDetail());
+		assertEquals( "Please contact the venue for more information.", nullLocalVenue.getVenueInformation().getWillCallDetail());
 		
 	}
 	
@@ -115,7 +115,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullParkingDetailShouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getParkingDetail());
+		assertEquals( "Please contact the venue for more information.", nullLocalVenue.getVenueInformation().getParkingDetail());
 		
 	}
 	
@@ -128,7 +128,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullAccessibleSeatingShouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getAccessibleSeatingDetail());
+		assertEquals( "Please contact the venue for more information.", nullLocalVenue.getVenueInformation().getAccessibleSeatingDetail());
 		
 	}
 	
@@ -141,7 +141,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullGeneralRuleShouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getGeneralRule());
+		assertEquals( "Please contact the venue for more information.", nullLocalVenue.getVenueInformation().getGeneralRule());
 		
 	}
 	
@@ -154,7 +154,7 @@ public class VenueInformationServiceTest {
 	@Test
 	public void nullChildRuleShouldReturnNATest() {
 		
-		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getChildRule());
+		assertEquals( "Please contact the venue for more information.", nullLocalVenue.getVenueInformation().getChildRule());
 		
 	}
 	

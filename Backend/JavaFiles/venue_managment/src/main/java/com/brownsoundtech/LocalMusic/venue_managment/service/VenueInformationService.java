@@ -36,8 +36,8 @@ public class VenueInformationService {
 	}
 
 	private String nullInformation() {
-		// TODO Auto-generated method stub
-		return "n/a";
+		
+		return "Please contact the venue for more information.";
 	}
 
 	public boolean isNullInformation(String nullInformation) {
