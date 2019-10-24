@@ -22,7 +22,7 @@ public class LocalVenue {
 		
 		venueInformation = new VenueInformation();
 		
-		new VenueInformationService(this, venueInformation);
+		new VenueInformationService(this);
 	}
 	
 	
