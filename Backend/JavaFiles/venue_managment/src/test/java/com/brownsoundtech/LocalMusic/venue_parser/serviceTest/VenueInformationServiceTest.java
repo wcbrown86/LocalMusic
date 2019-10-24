@@ -137,5 +137,31 @@ public class VenueInformationServiceTest {
 		
 		assertEquals( "Test Accessible Seating Detail", nonNullLocalVenue.getVenueInformation().getAccessibleSeatingDetail());
 	}
+	
+	@Test
+	public void nullGeneralRuleShouldReturnNATest() {
+		
+		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getGeneralRule());
+		
+	}
+	
+	@Test
+	public void shouldGeneralRuleTest() {
+		
+		assertEquals( "Test General Rule", nonNullLocalVenue.getVenueInformation().getGeneralRule());
+	}
+	
+	@Test
+	public void nullChildRuleShouldReturnNATest() {
+		
+		assertEquals( "n/a", nullLocalVenue.getVenueInformation().getChildRule());
+		
+	}
+	
+	@Test
+	public void shouldChildRuleDetailsTest() {
+		
+		assertEquals( "Test Child Rule", nonNullLocalVenue.getVenueInformation().getChildRule());
+	}
 
 }

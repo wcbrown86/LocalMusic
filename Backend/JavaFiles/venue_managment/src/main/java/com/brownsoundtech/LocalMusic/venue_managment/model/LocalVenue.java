@@ -35,7 +35,7 @@ public class LocalVenue {
 	public Venue getVenue() {
 		return venue;
 	}
-
+ 
 
 	public String getImages() {
 		

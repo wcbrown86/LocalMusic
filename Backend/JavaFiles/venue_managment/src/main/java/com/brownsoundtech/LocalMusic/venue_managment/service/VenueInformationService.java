@@ -22,6 +22,9 @@ public class VenueInformationService {
 		
 		venue.getVenueInformation().setAccessibleSeatingDetail(informationValidation(venue.getVenue().getAccessibleSeatingDetail()));
 		
+		venue.getVenueInformation().setGeneralRule(informationValidation(venue.getVenue().getGeneralInfo().getGeneralRule()));
+		venue.getVenueInformation().setChildRule(informationValidation(venue.getVenue().getGeneralInfo().getChildRule()));
+		
 	}
 
 	private String informationValidation(String info) {
