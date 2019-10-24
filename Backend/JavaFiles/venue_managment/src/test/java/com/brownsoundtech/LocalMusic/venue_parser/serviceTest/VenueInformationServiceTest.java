@@ -163,5 +163,42 @@ public class VenueInformationServiceTest {
 		
 		assertEquals( "Test Child Rule", nonNullLocalVenue.getVenueInformation().getChildRule());
 	}
+	
+	@Test
+	public void toStringTestShouldFormatteAllInformationTest() {
+		
+		String phoneNumber = String.format("Box Office Phone Number: \n\t%s", nonNullLocalVenue.getVenueInformation().getPhoneNumberDetail());
+		String openHours = String.format("Hours Of Opperation: \n\t%s", nonNullLocalVenue.getVenueInformation().getOpenHoursDetail());
+		String willCall = String.format("Will Call Information: \n\t%s", nonNullLocalVenue.getVenueInformation().getWillCallDetail());
+		String paymentInformation = String.format("Accepted Payment Information: \n\t%s", nonNullLocalVenue.getVenueInformation().getAcceptedPaymentDetail());
+		String parkingDetail = String.format("Parking Information: \n\t%s", nonNullLocalVenue.getVenueInformation().getParkingDetail());
+		String generalRule = String.format("General Information: \n\t%s", nonNullLocalVenue.getVenueInformation().getGeneralRule());
+		String childRule = String.format("Child Rule Information \n\t%s", nonNullLocalVenue.getVenueInformation().getChildRule());
+		String accessibleSeating = String.format("Accessible Seating Information \n\t%s", nonNullLocalVenue.getVenueInformation().getAccessibleSeatingDetail());
+		
+		String fullOutPut = String.format("%s \n%s \n%s \n%s \n%s \n%s \n%s \n%s", phoneNumber, openHours, willCall, paymentInformation, parkingDetail, generalRule, childRule, accessibleSeating);
+	
+		assertEquals(fullOutPut, nonNullLocalVenue.getVenueInformation().toString());
+		
+	}
+	
+	@Test
+	public void toStringTestShouldFormatteAllNullInformationTest() {
+		
+		String phoneNumber = String.format("Box Office Phone Number: \n\t%s", nullLocalVenue.getVenueInformation().getPhoneNumberDetail());
+		String openHours = String.format("Hours Of Opperation: \n\t%s", nullLocalVenue.getVenueInformation().getOpenHoursDetail());
+		String willCall = String.format("Will Call Information: \n\t%s", nullLocalVenue.getVenueInformation().getWillCallDetail());
+		String paymentInformation = String.format("Accepted Payment Information: \n\t%s", nullLocalVenue.getVenueInformation().getAcceptedPaymentDetail());
+		String parkingDetail = String.format("Parking Information: \n\t%s", nullLocalVenue.getVenueInformation().getParkingDetail());
+		String generalRule = String.format("General Information: \n\t%s", nullLocalVenue.getVenueInformation().getGeneralRule());
+		String childRule = String.format("Child Rule Information \n\t%s", nullLocalVenue.getVenueInformation().getChildRule());
+		String accessibleSeating = String.format("Accessible Seating Information \n\t%s", nullLocalVenue.getVenueInformation().getAccessibleSeatingDetail());
+		
+		String fullOutPut = String.format("%s \n%s \n%s \n%s \n%s \n%s \n%s \n%s", phoneNumber, openHours, willCall, paymentInformation, parkingDetail, generalRule, childRule, accessibleSeating);
+	
+		assertEquals(fullOutPut, nullLocalVenue.getVenueInformation().toString());
+		
+	}
+	
 
 }

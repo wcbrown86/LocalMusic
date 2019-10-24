@@ -2,16 +2,16 @@ package com.brownsoundtech.LocalMusic.venue_managment.model;
 
 public class VenueInformation {
 	
-	private String phoneNumberDetail, openHoursDetail, acceptedPaymentDetail,
+	private String boxOfficePhoneNumberDetail, openHoursDetail, acceptedPaymentDetail,
 					willCallDetail, parkingDetail, accessibleSeatingDetail,
 					generalRule, childRule;
 	
 	public String getPhoneNumberDetail() {
-		return phoneNumberDetail;
+		return boxOfficePhoneNumberDetail;
 	}
 
 	public void setPhoneNumberDetail(String phoneNumberDetail) {
-		this.phoneNumberDetail = phoneNumberDetail;
+		this.boxOfficePhoneNumberDetail = phoneNumberDetail;
 	}
 
 	public String getOpenHoursDetail() {
@@ -73,8 +73,18 @@ public class VenueInformation {
 	//TODO: Implement toString override. 
 	@Override
 	public String toString() {
+		String phoneNumber = String.format("Box Office Phone Number: \n\t%s", boxOfficePhoneNumberDetail);
+		String openHours = String.format("Hours Of Opperation: \n\t%s", openHoursDetail);
+		String willCall = String.format("Will Call Information: \n\t%s", willCallDetail);
+		String paymentInformation = String.format("Accepted Payment Information: \n\t%s", acceptedPaymentDetail);
+		String parking = String.format("Parking Information: \n\t%s", parkingDetail);
+		String general = String.format("General Information: \n\t%s", generalRule);
+		String child = String.format("Child Rule Information \n\t%s", childRule);
+		String accessibleSeating = String.format("Accessible Seating Information \n\t%s", accessibleSeatingDetail);
 		
-		return "";
+		String fullOutPut = String.format("%s \n%s \n%s \n%s \n%s \n%s \n%s \n%s", phoneNumber, openHours, willCall, paymentInformation, parking, general, child, accessibleSeating);
+		
+		return fullOutPut;
 	}
 
 }
