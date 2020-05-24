@@ -43,13 +43,13 @@ public class VenueimageServiceTest {
 	@Test
 	public void testValidURL() {
 		
-		assertTrue(nonNullImageService.isURL("https://s1.ticketm.net/dbimages/15646v.jpg"));
+		assertTrue(nonNullImageService.isURL(testNonNullImage.getUrl()));
 	}
 	
 	@Test
 	public void testNullURL() {
 		
-		assertFalse(nullImageService.isURL(null));
+		assertFalse(nullImageService.isURL(testNullImage.getUrl()));
 	}
 	
 	@Test

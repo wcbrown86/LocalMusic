@@ -3,8 +3,6 @@
  */
 package com.brownsoundtech.LocalMusic.venue_managment.service;
 
-import java.net.URL;
-
 import org.apache.commons.validator.routines.UrlValidator;
 
 import com.ticketmaster.discovery.model.Image;
