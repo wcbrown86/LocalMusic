@@ -1,4 +1,11 @@
 {
     "python.pythonPath": "/usr/local/opt/python/bin/python3.6",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "maven.view": "hierarchical"
 }
