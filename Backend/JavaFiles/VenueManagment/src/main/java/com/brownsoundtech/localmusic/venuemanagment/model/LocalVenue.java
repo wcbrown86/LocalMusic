@@ -13,13 +13,13 @@ import org.apache.commons.validator.routines.UrlValidator;
  */
 public class LocalVenue {
 	
-	private String name, address1, address2, city, state, zip, phoneNumber, faxNumber, longitude, latitude, webAddress;
+	private String name, address1, address2, city, state, zip, longitude, latitude, webAddress;
 	
 	
 	
 	public String validatedString (String stringToCheck) {
 		
-		if(stringToCheck == null || stringToCheck.isEmpty())
+		if(stringToCheck == null || stringToCheck.trim().isEmpty())
 			return "No Imformation Provided";
 		else 
 			return stringToCheck;
@@ -110,30 +110,7 @@ public class LocalVenue {
 	public void setZip(String zip) {
 		this.zip = validatedString(zip);
 	}
-	/**
-	 * @return the phoneNumber
-	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	/**
-	 * @param phoneNumber the phoneNumber to set
-	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = validatedString(phoneNumber);
-	}
-	/**
-	 * @return the faxNumber
-	 */
-	public String getFaxNumber() {
-		return faxNumber;
-	}
-	/**
-	 * @param faxNumber the faxNumber to set
-	 */
-	public void setFaxNumber(String faxNumber) {
-		this.faxNumber = validatedString(faxNumber);
-	}
+
 	/**
 	 * @return the longitude
 	 */
