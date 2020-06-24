@@ -228,6 +228,89 @@ class LocalVenueTest {
 		
 	}
 	
+	@Test 
+	void testGetZipValidInformation() {
+		
+		assertEquals("30904", validVenue.getZip());
+		
+	}
+	
+	@Test
+	void testGetZipNullInformation() {
+		
+		assertEquals(notValidString, nullVenue.getZip());
+		
+	}
+	
+	@Test
+	void testGetZipEmptyInformation() {
+		
+		assertEquals(notValidString, emptyVenue.getZip());
+		
+	}
+	
+	@Test 
+	void testGetLongitudeValidInformation() {
+		
+		assertEquals("-82.0187325", validVenue.getLongitude());
+		
+	}
+	
+	@Test
+	void testGetLongitudeNullInformation() {
+		
+		assertEquals(notValidString, nullVenue.getLongitude());
+		
+	}
+	
+	@Test
+	void testGetLongitudeEmptyInformation() {
+		
+		assertEquals(notValidString, emptyVenue.getLongitude());
+		
+	}
+	
+	@Test 
+	void testGetLatitudeValidInformation() {
+		
+		assertEquals("33.5062091", validVenue.getLatitude());
+		
+	}
+	
+	@Test
+	void testGetLatitudeNullInformation() {
+		
+		assertEquals(notValidString, nullVenue.getLatitude());
+		
+	}
+	
+	@Test
+	void testGetLatitudeEmptyInformation() {
+		
+		assertEquals(notValidString, emptyVenue.getLatitude());
+		
+	}
+	
+	@Test 
+	void testGetWebAddressValidInformation() {
+		
+		assertEquals("https://www.ticketmaster.com/madison-square-garden-tickets-new-york/venue/483329", validVenue.getWebAddress());
+		
+	}
+	
+	@Test
+	void testGetWebAddressNullInformation() {
+		
+		assertEquals(notValidURL, nullVenue.getWebAddress());
+		
+	}
+	
+	@Test
+	void testGetWebAddressEmptyInformation() {
+		
+		assertEquals(notValidURL, emptyVenue.getWebAddress());
+		
+	}
 	
 	@AfterEach
 	void clearMemory() {

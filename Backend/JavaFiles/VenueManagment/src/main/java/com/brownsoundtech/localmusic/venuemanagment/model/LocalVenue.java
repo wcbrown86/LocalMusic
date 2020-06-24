@@ -139,13 +139,13 @@ public class LocalVenue {
 	 * @return the webAddress
 	 */
 	public String getWebAddress() {
-		return webAddress;
+		return  webAddress;
 	}
 	/**
 	 * @param webAddress the webAddress to set
 	 */
 	public void setWebAddress(String webAddress) {
-		
+		this.webAddress =  validateURLAddress(webAddress);
 	}
 	
 
