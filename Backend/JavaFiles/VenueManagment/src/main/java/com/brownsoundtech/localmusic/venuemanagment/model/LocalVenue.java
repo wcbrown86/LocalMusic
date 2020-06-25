@@ -1,7 +1,5 @@
 package com.brownsoundtech.localmusic.venuemanagment.model;
 
-import java.net.URL;
-
 import org.apache.commons.validator.routines.UrlValidator;
 
 
