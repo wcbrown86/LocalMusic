@@ -22,9 +22,11 @@ public class LocalVenueController {
 		 
 	 }
 	 
-	 public void updateLocalVenueView() {
+	 public String updateLocalVenueView() {
 		 
-		 view.printVenueInformation(this);
+		String outPut =  view.printVenueInformation(this);
+		
+		return outPut;
 		 
 	 }
 	 

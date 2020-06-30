@@ -8,37 +8,51 @@ import com.brownsoundtech.localmusic.venuemanagment.controller.LocalVenueControl
  */
 public class LocalVenueView {
 	
-	public void printVenueInformation(LocalVenueController venueController) {
+	public String printVenueInformation(LocalVenueController venueController) {
 		
-		if(!venueController.getLocalVenueAddress2().equals("No Imformation Provided")) {
+		String informationToOutPut = "Venue Information: \n";
+		
+		if(isInformationVaild(venueController.getLocalVenueName()))
+			informationToOutPut += venueController.getLocalVenueName() + " \n";
+		else {
+			informationToOutPut = "Venue Information Not Provided.";
 			
-			System.out.printf("Venue Information: \n"
-					+ "%s \n"
-					+ "%s \n"
-					+ "%s \n"
-					+ "%s \n"
-					+ "%s %s, %s"
-					,venueController.getLocalVenueName()
-					,venueController.getLocalVenueWebAddress()
-					,venueController.getLocalVenueAddress1()
-					,venueController.getLocalVenueAddress2()
-					,venueController.getLocalVenueCity()
-					,venueController.getLocalVenueState()
-					,venueController.getLocalVenueZip());
-		} else {
-			
-			System.out.printf("Venue Information: \n"
-					+ "%s \n"
-					+ "%s \n"
-					+ "%s \n"
-					+ "%s %s, %s"
-					,venueController.getLocalVenueName()
-					,venueController.getLocalVenueWebAddress()
-					,venueController.getLocalVenueAddress1()
-					,venueController.getLocalVenueCity()
-					,venueController.getLocalVenueState()
-					,venueController.getLocalVenueZip());
+			System.out.println(informationToOutPut);
+			return informationToOutPut;
 		}
+		
+		if(isInformationVaild(venueController.getLocalVenueWebAddress()))
+			informationToOutPut += venueController.getLocalVenueWebAddress() + " \n";
+		
+		if(isInformationVaild(venueController.getLocalVenueAddress1()))
+			informationToOutPut += venueController.getLocalVenueAddress1() + " \n";
+		
+		if(isInformationVaild(venueController.getLocalVenueAddress2()))
+			informationToOutPut += venueController.getLocalVenueAddress2() + " \n";
+		
+		if(isInformationVaild(venueController.getLocalVenueCity()))
+			informationToOutPut += venueController.getLocalVenueCity() + " ";
+		
+		if(isInformationVaild(venueController.getLocalVenueState()))
+			informationToOutPut += venueController.getLocalVenueState() + ", ";
+		
+		if(isInformationVaild(venueController.getLocalVenueZip()))
+			informationToOutPut += venueController.getLocalVenueZip();
+		
+		
+		
+		System.out.println(informationToOutPut);
+		
+		return informationToOutPut;
+		
+	}
+	
+	public boolean isInformationVaild(String informationToValidate) {
+		
+		if(informationToValidate.equals("No Imformation Provided") || informationToValidate.equals("No Valid URL Was Provided."))
+			return false;
+		else
+			return true;
 		
 	}
 
