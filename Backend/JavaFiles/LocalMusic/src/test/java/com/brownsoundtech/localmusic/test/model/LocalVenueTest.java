@@ -1,12 +1,13 @@
 
-package com.brownsoundtech.localmusic.venuemanagment.test.model;
+package com.brownsoundtech.localmusic.test.model;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.Assert.*;
 
-import com.brownsoundtech.localmusic.venuemanagment.model.LocalVenue;
+import com.brownsoundtech.localmusic.model.LocalVenue;
+
+import static org.junit.Assert.*;
 
 /**
  * @author brown

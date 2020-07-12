@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.brownsoundtech.localmusic.venuemanagment.test.view;
+package com.brownsoundtech.localmusic.test.view;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,9 +10,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.brownsoundtech.localmusic.venuemanagment.controller.LocalVenueController;
-import com.brownsoundtech.localmusic.venuemanagment.model.LocalVenue;
-import com.brownsoundtech.localmusic.venuemanagment.view.LocalVenueView;
+import com.brownsoundtech.localmusic.controller.LocalVenueController;
+import com.brownsoundtech.localmusic.model.LocalVenue;
+import com.brownsoundtech.localmusic.view.LocalVenueView;
 
 /**
  * @author brown

@@ -1,6 +1,6 @@
-package com.brownsoundtech.localmusic.venuemanagment.view;
+package com.brownsoundtech.localmusic.view;
 
-import com.brownsoundtech.localmusic.venuemanagment.controller.LocalVenueController;
+import com.brownsoundtech.localmusic.controller.LocalVenueController;
 
 /**
  * @author brown
@@ -41,7 +41,7 @@ public class LocalVenueView {
 		
 		
 		
-		System.out.println(informationToOutPut);
+		System.out.println(informationToOutPut + "\n\n");
 		
 		return informationToOutPut;
 		

@@ -1,10 +1,10 @@
 /**
  * 
  */
-package com.brownsoundtech.localmusic.venuemanagment.controller;
+package com.brownsoundtech.localmusic.controller;
 
-import com.brownsoundtech.localmusic.venuemanagment.model.LocalVenue;
-import com.brownsoundtech.localmusic.venuemanagment.view.LocalVenueView;
+import com.brownsoundtech.localmusic.model.LocalVenue;
+import com.brownsoundtech.localmusic.view.LocalVenueView;
 
 /**
  * @author brown

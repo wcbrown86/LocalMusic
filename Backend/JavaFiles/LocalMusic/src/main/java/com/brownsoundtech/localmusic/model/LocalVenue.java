@@ -1,4 +1,4 @@
-package com.brownsoundtech.localmusic.venuemanagment.model;
+package com.brownsoundtech.localmusic.model;
 
 import org.apache.commons.validator.routines.UrlValidator;
 
