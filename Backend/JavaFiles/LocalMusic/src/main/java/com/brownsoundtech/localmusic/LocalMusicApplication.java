@@ -1,31 +1,27 @@
 package com.brownsoundtech.localmusic;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-import com.brownsoundtech.localmusic.controller.LocalVenueController;
-import com.brownsoundtech.localmusic.model.LocalVenue;
-import com.brownsoundtech.localmusic.view.LocalVenueView;
+import com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection;
 
 @SpringBootApplication
-public class VenueManagmentApplication {
+public class LocalMusicApplication {
+	
+	@Value("${LiveNationKey}")
+	private static String key;
 
 	public static void main(String[] args) {
-		SpringApplication.run(VenueManagmentApplication.class, args);
-		
-		LocalVenue validVenue = new LocalVenue();
-		LocalVenueView validVenueView = new LocalVenueView();
-		LocalVenueController validVenueController = new LocalVenueController(validVenue, validVenueView);
+		SpringApplication.run(LocalMusicApplication.class, args);
 	
+		LiveNationVenueAPIConnection test = new LiveNationVenueAPIConnection();
 		
+		
+		
+		System.out.println(key);
 	}
 	
-	public static void updateLiveNationVenueInformation(String arguments) {
-		
-		
-		
-	}
 	
 
 }

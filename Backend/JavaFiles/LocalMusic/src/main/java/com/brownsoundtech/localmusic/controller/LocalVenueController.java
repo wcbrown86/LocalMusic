@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.brownsoundtech.localmusic.controller;
 
 import com.brownsoundtech.localmusic.model.LocalVenue;

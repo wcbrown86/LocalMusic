@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.brownsoundtech.localmusic</groupId>
-	<artifactId>Local-Music-Venue-Managment</artifactId>
+	<artifactId>Local-Music</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>VenueManagment</name>
-	<description>Venue Management Program for the Local Music Project</description>
+	<name>LocalMusic</name>
+	<description>Backend Database builder for the Local Music Application</description>
 
 	<properties>
 		<java.version>14</java.version>
@@ -44,9 +44,10 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-vault-starter-config</artifactId>
-			<version>1.0.0.BUILD-SNAPSHOT</version>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-vault-config</artifactId>
+		    <version>2.2.3.RELEASE</version>
+		    <scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
