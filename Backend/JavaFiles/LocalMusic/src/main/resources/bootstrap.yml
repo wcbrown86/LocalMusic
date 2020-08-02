@@ -1,7 +1,0 @@
-spring:
-    application:
-        name: application
-    cloud:
-        vault:
-            token: s.9WgJHpmAJfnmbGarHH8L0FYw 
-            scheme: http

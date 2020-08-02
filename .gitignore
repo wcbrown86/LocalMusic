@@ -67,7 +67,7 @@ instance/
 docs/_build/
 
 # PyBuilder
-target/
+
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -96,6 +96,7 @@ venv.bak/
 
 # Rope project settings
 .ropeproject
+
 
 # mkdocs documentation
 /site

@@ -14,25 +14,29 @@ package com.brownsoundtech.localmusic.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.Data;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
-
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import com.brownsoundtech.localmusic.domain.LiveNationVenue;
 import com.fasterxml.jackson.core.type.TypeReference;
 
-
+@Data
+@ConfigurationProperties("localmusic")
 public class LiveNationVenueAPIConnection {
 	
 	private ObjectMapper mapper;
 	private TypeReference<List<LiveNationVenue>> typeReference;
 	private String url;
-	
+
 	
 	//This value is pulled from a vault that contains all the keys needed to connect to the systems.
-	@Value("${LiveNationKey}")
-	private String key;
+	private String LiveNationAPIKey;
 	
 	
 	/**
@@ -47,7 +51,7 @@ public class LiveNationVenueAPIConnection {
 	 */
 	public LiveNationVenueAPIConnection() {
 		
-		System.out.println(key);
+		System.out.println(LiveNationAPIKey);
 	}
 	
 	/**
@@ -62,9 +66,9 @@ public class LiveNationVenueAPIConnection {
 	private void buildRequestString(String request) {
 		
 		String discovery = "https://app.ticketmaster.com/discovery/v2/venues.json?";
-		String apiKey = "&apikey=" + key;
+		//String apiKey = "&apikey=" + key;
 		
-		url = discovery + request + apiKey;
+		//url = discovery + request + apiKey;
 		
 	}
 	
