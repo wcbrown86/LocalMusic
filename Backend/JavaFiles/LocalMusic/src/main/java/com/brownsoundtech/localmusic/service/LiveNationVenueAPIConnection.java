@@ -26,8 +26,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import com.brownsoundtech.localmusic.domain.LiveNationVenue;
 import com.fasterxml.jackson.core.type.TypeReference;
 
-@Data
-@ConfigurationProperties("localmusic")
+
 public class LiveNationVenueAPIConnection {
 	
 	private ObjectMapper mapper;

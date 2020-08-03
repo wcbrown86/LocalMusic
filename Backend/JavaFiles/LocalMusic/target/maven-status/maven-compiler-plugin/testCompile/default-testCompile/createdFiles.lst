@@ -1,0 +1,4 @@
+com\brownsoundtech\localmusic\test\VenueManagmentApplicationTests.class
+com\brownsoundtech\localmusic\test\model\LocalVenueTest.class
+com\brownsoundtech\localmusic\test\view\LocalVenueViewTest.class
+com\brownsoundtech\localmusic\test\controller\LocalVenueControllerTest.class

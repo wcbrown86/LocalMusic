@@ -2,30 +2,15 @@
   "groups": [
     {
       "name": "localmusic",
-      "type": "com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection",
-      "sourceType": "com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection"
+      "type": "com.brownsoundtech.localmusic.service.ConnectionInformation",
+      "sourceType": "com.brownsoundtech.localmusic.service.ConnectionInformation"
     }
   ],
   "properties": [
     {
-      "name": "localmusic.live-nation-a-p-i-key",
+      "name": "localmusic.live-nation-key",
       "type": "java.lang.String",
-      "sourceType": "com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection"
-    },
-    {
-      "name": "localmusic.mapper",
-      "type": "com.fasterxml.jackson.databind.ObjectMapper",
-      "sourceType": "com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection"
-    },
-    {
-      "name": "localmusic.type-reference",
-      "type": "com.fasterxml.jackson.core.type.TypeReference<java.util.List<com.brownsoundtech.localmusic.domain.LiveNationVenue>>",
-      "sourceType": "com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection"
-    },
-    {
-      "name": "localmusic.url",
-      "type": "java.lang.String",
-      "sourceType": "com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection"
+      "sourceType": "com.brownsoundtech.localmusic.service.ConnectionInformation"
     }
   ],
   "hints": []

@@ -1,11 +1,12 @@
 package com.brownsoundtech.localmusic;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-import com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection;
+import com.brownsoundtech.localmusic.service.ConnectionInformation;
 /**
  * 
  * @author William Chad Brown
@@ -18,13 +19,25 @@ import com.brownsoundtech.localmusic.service.LiveNationVenueAPIConnection;
  *
  */
 @SpringBootApplication
-@EnableConfigurationProperties(LiveNationVenueAPIConnection.class)
-public class LocalMusicApplication {
+@EnableConfigurationProperties(ConnectionInformation.class)
+public class LocalMusicApplication implements  CommandLineRunner{
+	
+	private String liveNationAPIKey;
+	private ConnectionInformation connectionInformation;
+	
+	public LocalMusicApplication(ConnectionInformation connectionInformation) {
+		this.connectionInformation = connectionInformation;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(LocalMusicApplication.class, args);
-	
-		LiveNationVenueAPIConnection test = new LiveNationVenueAPIConnection();
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		liveNationAPIKey = connectionInformation.getLiveNationKey();
+		System.out.print(liveNationAPIKey);
 		
 	}
 	
