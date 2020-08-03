@@ -15,7 +15,7 @@
 	<description>Backend Database builder for the Local Music Application</description>
 
 	<properties>
-		<java.version>8</java.version>
+		<java.version>14</java.version>
 	</properties>
 
 	<dependencies>
