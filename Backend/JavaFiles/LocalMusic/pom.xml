@@ -82,12 +82,15 @@
 		    <version>2.2.3.RELEASE</version>
 		    <scope>runtime</scope>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId> 
+			<version>3.14.2</version> 
 		</dependency>
 	</dependencies>
 	

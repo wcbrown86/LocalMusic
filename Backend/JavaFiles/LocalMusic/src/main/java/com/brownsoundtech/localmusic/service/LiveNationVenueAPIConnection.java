@@ -11,17 +11,23 @@ package com.brownsoundtech.localmusic.service;
  */
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Data;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 import java.util.List;
 import com.brownsoundtech.localmusic.domain.LiveNationVenue;
 import com.fasterxml.jackson.core.type.TypeReference;
 
-@Data
+
 public class LiveNationVenueAPIConnection {
 	
-	private ObjectMapper mapper;
-	private TypeReference<List<LiveNationVenue>> typeReference;
-	private String url;
+	protected ObjectMapper mapper;
+	protected TypeReference<List<LiveNationVenue>> typeReference;
+	protected String url;
+	protected String apiKey;
+	protected String requestedInformation;
 		
 	/**
 	 * 
@@ -30,27 +36,51 @@ public class LiveNationVenueAPIConnection {
 	 * 
 	 */
 	public LiveNationVenueAPIConnection(String apiKey, String requestedInformation) {
-		
-		System.out.println(apiKey);
-		buildRequestString(requestedInformation, apiKey);
-		System.out.println(url);
+
+		this.apiKey = apiKey;
+		this.requestedInformation = requestedInformation;
+
+		buildRequestString();
+		makeGetRequest();
+
 	}
-	
+
 	/**
 	 * 
-	 * This method is used to take the information that is passed from the main application 
-	 * and then build the correct URL string to get the information requested to update the 
-	 * database.
+	 * This method is used to take the information that is passed from the main
+	 * application and then build the correct URL string to get the information
+	 * requested to update the database.
 	 * 
-	 * @param request - A formated string that will be used as a URL to connect to an API
+	 * @param request - A formated string that will be used as a URL to connect to
+	 *                an API
 	 * 
 	 */
-	private void buildRequestString(String request, String key) {
+	private void buildRequestString() {
+
+		final String discovery = "https://app.ticketmaster.com/discovery/v2/venues.json?";
+		final String key = "&apikey=" + this.apiKey;
+		url = discovery + this.requestedInformation + key;
 		
-		String discovery = "https://app.ticketmaster.com/discovery/v2/venues.json?";
-		String apiKey = "&apikey=" + key;
-		url = discovery + request + apiKey;
+	}
+
+	/**
+	 * 
+	 * This method will create the connection to the API and will POST a GET 
+	 * request to bring in the information requested. I will then pass the JSON 
+	 * object to be parsed. 
+	 * 
+	 */
+	private void makeGetRequest() {
 		
+		OkHttpClient client = new OkHttpClient();
+		Request request = new Request.Builder().url(url).build();
+
+		try{
+			Response response = client.newCall(request).execute();
+		}catch(Exception e){
+			System.out.println(e.toString());
+		}
+
 	}
 	
 	
