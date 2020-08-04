@@ -16,13 +16,21 @@ The minimally viable product will be the creation of the web app for venue manag
 
 This project is also meant to only be used to show my work and ability to learn new concepts and then apply these concepts into a working project.
 
-#### Current Work being done.
-- [x] Design classes for holding the information gathered from the Live Nation API
-- [x] Design API parser class to use faster JSON parsing 
-- [x] Design connection to LiveNation's Java API.
+#### Current Work being done for core application.
+- [x] Design classes for holding the information gathered from the Live Nation API.
+- [x] Design API parser class to use faster JSON parsing. 
+- [x] Implement safe storage of API keys to attempt to maintain application security. (Vault was choosen to store secrets)
+- [x] Implement Vault in a Docker container.
+- [ ] Design connection to LiveNation's Java API.
 - [ ] Design connection with Java Spring to connect to SQL database.
+- [ ] Design and implement SQL database to store information gathered.
 - [ ] Implement tests to verify that the data is being pulled from the LiveNation API and then being stored in the LiveMusic database. 
 - [ ] Refactor Java code after the testing has been setup and completed.
+- [ ] Design CD/CI pipline to continue application development as the application grows to maintain better deploment, and rolback if needed.
+- [ ] Host application either in house or with a cloud service provider. 
+- [ ] Implement Kubernetes enviroment to keep the application running and to provide auto scaling. 
+
+#### Work to be done for application access. (at a high level)
 - [ ] Design a simple user interface to be implemented on a smart phone and tablet.
 - [ ] Implement user interface design and program a functioning iPhone app.
 - [ ] Set up testing for the iPhone application.
@@ -37,6 +45,8 @@ This project is also meant to only be used to show my work and ability to learn 
 - [ ] Implement web crawler program with Python.
 - [ ] Setup tests for the web crawling program.
 - [ ] Refactor code as needed.
+
+#### Strech goals if time provides. 
 - [ ] Design web tool for venues to use as a calendar widget to show events on the venues webpage, this information will be used in the overall database to let users know about upcoming events.
 - [ ] Implement web widget.
 - [ ] Setup tests for web widget.
