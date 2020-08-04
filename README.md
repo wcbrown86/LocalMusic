@@ -16,7 +16,9 @@ The minimally viable product will be the creation of the web app for venue manag
 
 This project is also meant to only be used to show my work and ability to learn new concepts and then apply these concepts into a working project.
 
-#### Current Work being done. 
+#### Current Work being done.
+- [x] Design classes for holding the information gathered from the Live Nation API
+- [x] Design API parser class to use faster JSON parsing 
 - [x] Design connection to LiveNation's Java API.
 - [ ] Design connection with Java Spring to connect to SQL database.
 - [ ] Implement tests to verify that the data is being pulled from the LiveNation API and then being stored in the LiveMusic database. 
