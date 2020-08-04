@@ -47,6 +47,7 @@ This project is also meant to only be used to show my work and ability to learn 
 - [ ] Refactor code as needed.
 
 #### Strech goals if time provides. 
+- [ ] Implement API connection for other services. ex. E-Tixs, Stubhub, etc.
 - [ ] Design web tool for venues to use as a calendar widget to show events on the venues webpage, this information will be used in the overall database to let users know about upcoming events.
 - [ ] Implement web widget.
 - [ ] Setup tests for web widget.
