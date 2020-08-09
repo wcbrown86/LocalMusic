@@ -1,5 +1,3 @@
-
-
 package com.brownsoundtech.localmusic.domain;
 
 import lombok.Getter;
@@ -12,7 +10,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
- * @author brown
+ * @author William C. Brown
+ * @version 0.0.1
+ * 
+ * This class is used to leverage the Faster XML jackson tool to parse the Live Nation
+ * API. It contains nested classes to cover the JSON objects that are nested into the information
+ * that is provided by the API. The Lombok tools are also leverage to reduce lines of code that 
+ * need to be written. Lombok is used to create getters and setters and default constructors. 
+ * This file will need to be updated as the API information is updated. 
  *
  */
 

@@ -5,7 +5,13 @@ import com.brownsoundtech.localmusic.model.LocalVenue;
 import com.brownsoundtech.localmusic.view.LocalVenueView;
 
 /**
- * @author brown
+ * @author William C. Brown
+ * @version 0.0.1
+ * 
+ * This class was created to aid with a web controler setup. It is 
+ * possible that in the final version of the application this will not be 
+ * needed. The application will provide a web based log of the information 
+ * that is updated to allow for upkeep and verification of the concept. 
  *
  */
 public class LocalVenueController {

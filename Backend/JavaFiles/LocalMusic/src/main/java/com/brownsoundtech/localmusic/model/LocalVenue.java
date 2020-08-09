@@ -2,11 +2,13 @@ package com.brownsoundtech.localmusic.model;
 
 import org.apache.commons.validator.routines.UrlValidator;
 
-
-
-
 /**
- * @author brown
+ * @author William C. Brown
+ * @version 0.0.1
+ * 
+ * This class is used to build out the information that is pulled from the different
+ * APIs. As the information is pulled in and parsed it will be placed into a LocalVenue
+ * object, then pushed to the SQL data base. 
  *
  */
 public class LocalVenue {
@@ -14,8 +16,22 @@ public class LocalVenue {
 	private String name, address1, address2, city, state, zip, longitude, latitude, webAddress;
 	
 	
-	
-	public String validatedString (String stringToCheck) {
+	/**
+	 * 
+	 * This function is used to check the information that is being passed to 
+	 * the object. If the API does not return a properly formated information
+	 * or if the API returns NULL information. This is then replaced with 
+	 * default or filler information that can be stored and updated later 
+	 * when the correct information is retrived or manualy updated by the 
+	 * venue or a application administrator. 
+	 * 
+	 * @param stringToCheck - The information passed from the setters.
+	 * @return - If the information is valid the original string is returned
+	 * 			if the information is not valid or NULL a default or filler string
+	 * 			is returned.
+	 * 
+	 */
+	private String validatedString (String stringToCheck) {
 		
 		if(stringToCheck == null || stringToCheck.trim().isEmpty())
 			return "No Imformation Provided";
@@ -24,7 +40,19 @@ public class LocalVenue {
 		
 	}
 	
-	public String validateURLAddress ( String urlAddress) {
+	/**
+	 * 
+	 * This function is used to make sure that the url that is passed 
+	 * is a valid url that be can be called and used for the venue 
+	 * information. This will be the website for the venue, and can also
+	 * be information for a photo that is used be the venue for advertisment 
+	 * or promotion. 
+	 * 
+	 * @param urlAddress
+	 * @return - A string either containing the original string if it is a 
+	 * 			valid URL other wise default or filler information is returned. 
+	 */
+	private String validateURLAddress ( String urlAddress) {
 		
 		String[] schemes = {"http","https"};
 		UrlValidator urlValidator = new UrlValidator(schemes);

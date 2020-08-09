@@ -33,10 +33,26 @@ public class LocalMusicApplication implements  CommandLineRunner{
 		SpringApplication.run(LocalMusicApplication.class, args);
 	}
 
+	/**
+	 * 
+	 * Overridden method that is used to grab the API key from the 
+	 * vault container. This will also be expanded to access other
+	 * API and login keys that might be needed to run the overall
+	 * program. 
+	 * 
+	 * TODO: 
+	 * If the applicaiton is moved into production the print call 
+	 * must be removed. 
+	 * 
+	 * 
+	 */
 	@Override
 	public void run(String... args) throws Exception {
 		
 		liveNationAPIKey = connectionInformation.getLiveNationKey();
+
+		//Just used for verification of the application. Must be removed when moved
+		//into production. 
 		System.out.print(liveNationAPIKey);
 		
 	}
