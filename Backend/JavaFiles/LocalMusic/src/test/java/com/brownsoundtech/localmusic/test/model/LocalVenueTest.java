@@ -81,49 +81,6 @@ class LocalVenueTest {
 		
 	}
 
-	@Test
-	void testValidateURLAddressValidURL() {
-		String url = "https://www.ticketmaster.com/madison-square-garden-tickets-new-york/venue/483329";
-		assertEquals(url, validVenue.validateURLAddress(url));
-	
-	}
-	
-	@Test
-	void testValidateURLAddressEmptyURL() {
-		
-		assertEquals(notValidURL, emptyVenue.validateURLAddress(""));
-		
-	}
-	
-	@Test
-	void testValidateURLAddressNullURL() {
-		
-		assertEquals(notValidURL, nullVenue.validateURLAddress(null));
-		
-	}
-	
-	@Test
-	void testValidatedStringValidString() {
-		
-		assertEquals("Test Test", validVenue.validatedString("Test Test"));
-		
-	}
-	
-	@Test
-	void testValidatedStringNullString() {
-		
-		assertEquals(notValidString, nullVenue.validatedString(null));
-		
-	}
-	
-	@Test
-	void testValidatedStringEmptyString() {
-		
-		assertEquals(notValidString, emptyVenue.validatedString(""));
-		assertEquals(notValidString, emptyVenue.validatedString(" "));
-		
-	}
-	
 	@Test 
 	void testGetNameValidInformation() {
 		
