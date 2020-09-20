@@ -40,7 +40,7 @@ public class LocalMusicApplication implements  CommandLineRunner{
 	 * API and login keys that might be needed to run the overall
 	 * program. 
 	 * 
-	 * TODO: 
+	 * To Do items: 
 	 * If the applicaiton is moved into production the print call 
 	 * must be removed. 
 	 * 
