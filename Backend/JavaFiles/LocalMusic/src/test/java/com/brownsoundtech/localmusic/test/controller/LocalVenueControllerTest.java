@@ -5,7 +5,6 @@ package com.brownsoundtech.localmusic.test.controller;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
